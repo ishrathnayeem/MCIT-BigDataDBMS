@@ -1,15 +1,9 @@
-import java.sql.{Connection, DriverManager}
-
 import ca.mcit.stm.configuration.Config
+import ca.mcit.stm.extTables.ExternalTables
 import ca.mcit.stm.fileManaging.FileManaging
 import org.apache.hadoop.fs.Path
  
-object Main extends App with Config with FileManaging{
-  val driverName: String = "org.apache.hive.jdbc.HiveDriver"
-  Class.forName(driverName)
-
-  val connection: Connection = DriverManager.getConnection("jdbc:hive2://quickstart.cloudera:10000/fall2019_ishrath;user=ishrathnayeem;password=Faheemnayeem1.")
-  val stmt = connection.createStatement()
+object Main extends App with Config with FileManaging with ExternalTables{
 
   try {
     hadoop

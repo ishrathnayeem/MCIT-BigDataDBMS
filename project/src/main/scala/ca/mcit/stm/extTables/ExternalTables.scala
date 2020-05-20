@@ -1,8 +1,13 @@
 package ca.mcit.stm.extTables
-
-import Main
+import java.sql.{Connection, DriverManager, Statement}
+//import Main.connection
 
 trait ExternalTables {
+  val driverName: String = "org.apache.hive.jdbc.HiveDriver"
+  Class.forName(driverName)
+
+  val connection: Connection = DriverManager.getConnection("jdbc:hive2://quickstart.cloudera:10000/fall2019_ishrath;user=ishrathnayeem;password=Faheemnayeem1.")
+  val stmt: Statement = connection.createStatement()
   stmt execute """DROP TABLE IF EXISTS ext_trips"""
   stmt execute """DROP TABLE IF EXISTS ext_frequencies"""
   stmt execute """DROP TABLE IF EXISTS ext_calendar_dates"""
