@@ -1,2 +1,2 @@
 # MCIT-BigDataDBMS
-t contains assignments and projects of BigData in course FOUR
+It contains assignments and projects of BigData in course FOUR
